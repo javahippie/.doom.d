@@ -54,18 +54,11 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-(use-package centaur-tabs
-  :demand
-  :config
-  (centaur-tabs-mode t)
-  :bind
-  ("C-<prior>" . centaur-tabs-backward)
-  ("C-<next>" . centaur-tabs-forward))
-
 ;; Enable paredit mode for Clojure buffers, CIDER mode and CIDER REPL buffers
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
+(add-hook 'java-mode-hook #'lsp-mode)
 
 ;;
 ;; - `load!' for loading external *.el files relative to this one
