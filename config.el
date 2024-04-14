@@ -37,7 +37,7 @@
   "Automatically set the theme to match if OSX is in dark mode."
   (interactive)
 
-  (if (system-dark-mode-enabled-p)
+  (if (system-dark-mode-enabled-p) ;; Currently I want to use dark mode, always
       (load-theme 'doom-outrun-electric t)
       (load-theme 'doom-outrun-electric t)))
 
@@ -63,7 +63,7 @@
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
-;(add-hook 'java-mode-hook #'lsp-mode)
+(add-hook 'java-mode-hook #'lsp-mode)
 
 (after! cider
   (setq cider-enrich-classpath t))
