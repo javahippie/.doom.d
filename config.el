@@ -22,6 +22,9 @@
  (setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
        doom-variable-pitch-font (font-spec :family "Fira Code" :size 13))
 
+;;(setq doom-themes-treemacs-theme "doom-colors")
+(customize-set-variable 'doom-themes-treemacs-theme "doom-colors")
+
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
@@ -35,8 +38,8 @@
   (interactive)
 
   (if (system-dark-mode-enabled-p)
-      (load-theme 'doom-vibrant  t)
-      (load-theme 'doom-one-light t)))
+      (load-theme 'doom-outrun-electric t)
+      (load-theme 'doom-outrun-electric t)))
 
 (defun system-dark-mode-enabled-p ()
   "Check if dark mode is currently enabled on OSX."
@@ -60,7 +63,10 @@
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
-(add-hook 'java-mode-hook #'lsp-mode)
+;(add-hook 'java-mode-hook #'lsp-mode)
+
+(after! cider
+  (setq cider-enrich-classpath t))
 
 ;;
 ;; - `load!' for loading external *.el files relative to this one
